@@ -10,4 +10,4 @@ app.listen(PORT, () => {
   /* eslint-disable no-console */
   console.log('server started on port 5000')
   /* eslint-enable no-console */
-});
+})
