@@ -20,4 +20,4 @@ jobs:
       - name: run tests
         run: npm run test
       - name: Trigger deployment
-        run: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: curl ${{ secrets.RENDER_DEPLOY_HOOK }}
