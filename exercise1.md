@@ -22,4 +22,4 @@ Googling “setting CI” gives us options such as GitLab CI, Azure Pipelines, T
 
  
 
-I guess it really depends on the nature of the project. If we have a long project that is never “finished” I guess we would then use self-hosted CI/CD. But we have a clear goal and endpoint we would prefer cloud-based environment. Also depends on the scale of the project. If we have a large project , we would prefer to use self-hosting and on smaller projects we would prefer to use cloud-based hosting. Six people on the could be large enough to use self-hosting, but in this case I guess I would go with the cloud-based hosting. 
+I guess it really depends on the nature of the project. If we have a long project that is never “finished” I guess we would then use self-hosted CI/CD. But we have a clear goal and endpoint we would prefer cloud-based environment. Also depends on the scale of the project. If we have a large project , we would prefer to use self-hosting and on smaller projects we would prefer to use cloud-based hosting. Six people on the project could be large enough to use self-hosting, but in this case I guess I would go with the cloud-based hosting. 
