@@ -25,10 +25,13 @@ jobs:
         run: npm run test
       - name: Trigger deployment
         run: curl ${{ secrets.RENDER_DEPLOY_HOOK }}
+  tag_release:
+    needs: [simple_deployment_pipeline]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.55.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
-          
-        
