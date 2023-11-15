@@ -33,11 +33,13 @@ jobs:
           details: Build completed!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: build failed
+        env:
+          COMMITS: ${{ toJson(github.sha) }}
         if: ${{ failure() }}
         uses: rjstone/discord-webhook-notify@v1
         with: 
           severity: error
-          details: Build failed!
+          details: Build failed! Push id "$COMMITS"
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           
           
