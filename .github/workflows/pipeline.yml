@@ -25,6 +25,22 @@ jobs:
         run: npm run test
       - name: Trigger deployment
         run: curl ${{ secrets.RENDER_DEPLOY_HOOK }}
+      - name: build succeeded
+        if: ${{ success() }}
+        uses: rjstone/discord-webhook-notify@v1
+        with: 
+          severity: info
+          details: Build completed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: build failed
+        if: ${{ failure() }}
+        uses: rjstone/discord-webhook-notify@v1
+        with: 
+          severity: error
+          details: Build failed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          
+          
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-latest
