@@ -10,7 +10,7 @@
     "eslint": "eslint './**/*.{js,jsx}'",
     "build": "webpack --mode production",
     "buildRender": "build_step.sh",
-    "cypress:open": "cypress open"
+    "test:e2e": "cypress open"
   },
   "repository": {
     "type": "git",
