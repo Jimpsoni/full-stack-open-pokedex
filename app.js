@@ -9,7 +9,7 @@ app.use(express.static('dist'))
 app.get('/version', (req, res) => {
   res.send('0.2.4') // change this string to ensure a new version deployed
 })
-       
+
 app.get('/health', (req, res) => {
   res.send('Making a new tag again')
 })
