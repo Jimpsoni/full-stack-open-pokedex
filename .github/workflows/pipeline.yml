@@ -27,13 +27,13 @@ jobs:
         run: curl ${{ secrets.RENDER_DEPLOY_HOOK }}
   tag_release:
     needs: [simple_deployment_pipeline]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     if: ${{ github.event_name == 'push' }}
     steps:
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.66.0
         env:
-          WITH_V: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
 
         
