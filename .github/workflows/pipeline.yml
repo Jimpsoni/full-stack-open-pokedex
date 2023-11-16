@@ -19,6 +19,8 @@ jobs:
           node-version: '16'
       - name: Install dependencies 
         run: npm install  
+      - name: Check style
+        run: npm run eslint
       - name: run tests
         run: npm run test
       - name: e2e tests
@@ -28,3 +30,17 @@ jobs:
          build: npm run build
          start: npm run start-prod
          wait-on: 'npx --yes wait-on --timeout 60000 tcp:5000'
+      - name: Trigger deployment
+        run: curl ${{ secrets.RENDER_DEPLOY_HOOK }}
+          
+          
+  tag_release:
+    needs: [simple_deployment_pipeline]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.55.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
