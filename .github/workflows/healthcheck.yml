@@ -11,4 +11,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: ping application
-        run: curl -s https://full-stack-open-pokedex-eixg.onrender.com/health
+        run: curl --fail https://full-stack-open-pokedex-eixg.onrender.com/health
