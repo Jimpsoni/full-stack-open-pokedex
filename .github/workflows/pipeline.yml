@@ -25,5 +25,6 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
          command: npm run test:e2e
+         build: npm run build
          start: npm run start-prod
-         wait-on: http://127.0.0.1:5000
+         wait-on: 'npx --yes wait-on --timeout 60000 tcp:5000'
