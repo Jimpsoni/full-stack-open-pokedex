@@ -9,7 +9,7 @@ jobs:
   Healthcheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        if: curl -s -o /dev/null -w "%{http_code}" https://full-stack-open-pokedex-eixg.onrender.com/healthh != 200
-      - name: Raise error
-        run: core.error
+      - name: basic healthcheck 
+        uses: jtalk/url-health-check-action@v3
+        with:
+          url: https://full-stack-open-pokedex-eixg.onrender.com/healthh
