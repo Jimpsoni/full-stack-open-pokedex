@@ -2,7 +2,7 @@ name: Healthcheck pipeline
 
 on:
   schedule:
-    - cron: '30 17 * * *'
+    - cron: '50 15 * * *'
 
 jobs:
   Healthcheck:
