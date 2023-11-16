@@ -16,6 +16,6 @@ app.get('/health', (req, res) => {
 
 app.listen(PORT, () => {
   /* eslint-disable no-console */
-  console.log('server started on port 5000')
+  console.log('server started on port ${PORT}')
   /* eslint-enable no-console */
 })
