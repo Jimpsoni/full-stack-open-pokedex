@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: ping application
-          if curl -s -o /dev/null -w "%{http_code}" https://full-stack-open-pokedex-eixg.onrender.com/healthh == 404 ; then
-          exit 1
-          fi
+        if: ${{ curl -s -o /dev/null -w "%{http_code}" https://full-stack-open-pokedex-eixg.onrender.com/healthh != 200 }}
+      - name: Raise error
+          core.error
