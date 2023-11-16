@@ -14,4 +14,8 @@ app.get('/health', (req, res) => {
   res.send('Making a new tag again')
 })
 
-app.listen(PORT, '0.0.0.0')
+app.listen(PORT, () => {
+  /* eslint-disable no-console */
+  console.log('server started on port 5000')
+  /* eslint-enable no-console */
+})
